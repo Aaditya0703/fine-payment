@@ -1,21 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pay RTO Fine</title>
   <style>
-    body { display:flex; justify-content:center; align-items:center; 
-           height:100vh; margin:0; background:#1a1a2e; flex-direction:column; }
-    h2 { color:#e74c3c; font-family:Arial; }
-    p  { color:#aaa; font-family:Arial; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #1a1a2e;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 420px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .header {
+      background: #c0392b;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #f5b7b1;
+      font-size: 13px;
+    }
+    .alert-box {
+      background: #fff5f5;
+      border-bottom: 2px solid #e74c3c;
+      padding: 14px 20px;
+      text-align: center;
+    }
+    .alert-box p {
+      color: #c0392b;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .icon-box {
+      text-align: center;
+      padding: 24px 20px 10px;
+    }
+    .icon-box .icon { font-size: 52px; }
+    .icon-box h2 {
+      color: #c0392b;
+      font-size: 17px;
+      margin-top: 10px;
+    }
+    .icon-box p {
+      color: #666;
+      font-size: 13px;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .details {
+      padding: 16px 20px;
+    }
+    .details h3 {
+      color: #2c3e50;
+      font-size: 14px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 6px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .row .label { color: #888; }
+    .row .value { color: #333; font-weight: bold; text-align: right; max-width: 60%; }
+    .row .value.red { color: #e74c3c; }
+    .row .value.orange { color: #e67e22; }
+    .row .value.green { color: #27ae60; }
+    .pay-section {
+      padding: 20px;
+      text-align: center;
+    }
+    .pay-section p {
+      color: #888;
+      font-size: 12px;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+    .footer {
+      background: #1a1a2e;
+      padding: 14px 20px;
+      text-align: center;
+    }
+    .footer p {
+      color: #666;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .footer span { color: #e74c3c; font-weight: bold; }
   </style>
 </head>
 <body>
-  <h2>🔒 Vehicle Locked — Alcohol Detected</h2>
-  <p>Pay fine of ₹2 to unlock your engine</p>
-  <form>
-    <script src="https://checkout.razorpay.com/v1/payment-button.js" 
-            data-payment_button_id="pl_Sbj6xl1CXGOXqk" async>
-    </script>
-  </form>
+  <div class="card">
+
+    <div class="header">
+      <h1>🍺 ALCOHOL DETECTION ALERT</h1>
+      <p>Smart Vehicle Safety System — Embeetek Technologies</p>
+    </div>
+
+    <div class="alert-box">
+      <p>🔒 ENGINE BLOCKED — PAY FINE TO UNLOCK</p>
+    </div>
+
+    <div class="icon-box">
+      <div class="icon">🚫</div>
+      <h2>Vehicle Engine Electronically Blocked</h2>
+      <p>Alcohol level above permissible limit detected.<br>Pay fine to restore vehicle access.</p>
+    </div>
+
+    <div class="details">
+      <h3>📋 Violation Details</h3>
+      <div class="row"><span class="label">Vehicle No.</span><span class="value">MH 09 FJ 3620</span></div>
+      <div class="row"><span class="label">Owner</span><span class="value">MR. VITTHAL SADASHIV PATIL</span></div>
+      <div class="row"><span class="label">Violation</span><span class="value red">🍺 Drunk Driving</span></div>
+      <div class="row"><span class="label">Fine Amount</span><span class="value red">₹ 2</span></div>
+      <div class="row"><span class="label">Due Date</span><span class="value orange">20 April 2026</span></div>
+      <div class="row"><span class="label">Engine</span><span class="value red">🔒 BLOCKED</span></div>
+    </div>
+
+    <div class="details">
+      <h3>🚗 Vehicle Details</h3>
+      <div class="row"><span class="label">Model</span><span class="value">HYUNDAI SANTRO 1.1</span></div>
+      <div class="row"><span class="label">Fuel</span><span class="value">PETROL</span></div>
+      <div class="row"><span class="label">Year</span><span class="value">2018</span></div>
+      <div class="row"><span class="label">RTO</span><span class="value">KOLHAPUR</span></div>
+    </div>
+
+    <div class="details">
+      <h3>🛡 Insurance</h3>
+      <div class="row"><span class="label">Insurer</span><span class="value">SBI General Insurance</span></div>
+      <div class="row"><span class="label">Policy No.</span><span class="value">HYNDAIHIIB/1562228</span></div>
+      <div class="row"><span class="label">Valid Till</span><span class="value green">07-JAN-2027</span></div>
+    </div>
+
+    <div class="details">
+      <h3>🌿 PUC Status</h3>
+      <div class="row"><span class="label">PUC</span><span class="value green">✔ Valid</span></div>
+    </div>
+
+    <div class="pay-section">
+      <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_Sbj6xl1CXGOXqk" async>
+        </script>
+      </form>
+      <p>⚠ Non-payment after due date attracts ₹500/week penalty.<br>
+         Engine unlocks automatically after payment verification.</p>
+    </div>
+
+    <div class="footer">
+      <p>🔧 Powered by <span>Embeetek Technologies</span><br>
+         Smart Alcohol Detection & Engine Blocking System</p>
+    </div>
+
+  </div>
 </body>
 </html>
