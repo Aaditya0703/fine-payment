@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script>
+function isInApp() {
+  return /wv|WebView|FBAN|FBAV|Instagram|WhatsApp/i.test(navigator.userAgent);
+}
+</script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pay RTO Fine</title>
@@ -115,11 +122,37 @@
       <div class="row"><span class="label">PUC</span><span class="value green">✔ Valid</span></div>
     </div>
 
-    <div class="pay-section">
-      <form>
-        <script src="https://checkout.razorpay.com/v1/payment-button.js"
-                data-payment_button_id="pl_Sbj6xl1CXGOXqk" async>
-        </script>
+   <div class="pay-section" id="paySection">
+
+  <div id="inAppMsg" style="display:none;">
+    <h3 style="color:red;">Open in Browser Required</h3>
+    <p>This payment page is not supported inside apps.</p>
+    <a href="intent://aaditya0703.github.io/fine-payment/#Intent;scheme=https;package=com.android.chrome;end;"
+       style="background:#e74c3c;color:#ffffff;padding:12px 20px;
+              text-decoration:none;border-radius:6px;display:inline-block;margin-top:10px;">
+      Open in Chrome
+    </a>
+  </div>
+
+  <div id="razorpayBtn">
+    <form>
+      <script src="https://checkout.razorpay.com/v1/payment-button.js"
+              data-payment_button_id="pl_Sbj6xl1CXGOXqk" async>
+      </script>
+    </form>
+  </div>
+
+  <p>⚠ Non-payment after due date attracts ₹500/week penalty.<br>
+     Engine unlocks automatically after payment verification.</p>
+
+</div>
+
+<script>
+if (isInApp()) {
+  document.getElementById("razorpayBtn").style.display = "none";
+  document.getElementById("inAppMsg").style.display = "block";
+}
+</script>
       </form>
       <p>⚠ Non-payment after due date attracts ₹500/week penalty.<br>
          Engine unlocks automatically after payment verification.</p>
